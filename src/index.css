@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+/* ============================================
+   A-Z Tennis — Design Tokens
+   Scottsdale desert warmth + tennis court green
+   ============================================ */
+
+@theme {
+  /* Primary: deep forest teal (authority, trust, tennis court) */
+  --color-forest: #1B4D3E;
+  --color-forest-light: #2A6B5A;
+  --color-forest-dark: #0F3329;
+
+  /* Accent: Scottsdale terracotta / warm amber */
+  --color-burnt: #D97706;
+  --color-burnt-light: #F59E0B;
+  --color-burnt-dark: #B45309;
+
+  /* Warm neutrals */
+  --color-cream: #FAF8F5;
+  --color-cream-dark: #F0ECE4;
+  --color-sand: #F5F0E8;
+  --color-sand-dark: #E8E0D4;
+
+  /* Text */
+  --color-slate: #374151;
+  --color-slate-light: #6B7280;
+
+  /* Typography */
+  --font-display: 'Playfair Display', 'Georgia', serif;
+  --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: #FAF8F5;
+  color: #374151;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
