@@ -36,11 +36,13 @@ import {
 const BASE = import.meta.env.BASE_URL
 
 // ---- Reusable fade-in wrapper ----
-const FadeIn = ({ children, delay = 0, className = '' }) => (
+const FadeIn = ({ children, delay = 0, className = '', immediate = false }) => (
   <motion.div
-    initial={{ opacity: 0, y: 24 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: '-60px' }}
+    initial={immediate ? false : { opacity: 0, y: 24 }}
+    {...(immediate
+      ? { animate: { opacity: 1, y: 0 } }
+      : { whileInView: { opacity: 1, y: 0 }, viewport: { once: true, amount: 0.1 } }
+    )}
     transition={{ duration: 0.5, delay, ease: 'easeOut' }}
     className={className}
   >
@@ -201,13 +203,13 @@ function Hero() {
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 py-20 md:py-28 w-full">
         <div className="max-w-2xl">
-          <FadeIn>
+          <FadeIn immediate>
             <p className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-burnt-light text-xs font-semibold tracking-wider uppercase mb-6 border border-white/5">
               <Sun size={14} /> Scottsdale, Arizona &middot; Since 1993
             </p>
           </FadeIn>
 
-          <FadeIn delay={0.1}>
+          <FadeIn immediate delay={0.1}>
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.06] tracking-tight">
               Scottsdale's <span className="italic">#1</span>
               <br />
@@ -215,14 +217,14 @@ function Hero() {
             </h1>
           </FadeIn>
 
-          <FadeIn delay={0.2}>
+          <FadeIn immediate delay={0.2}>
             <p className="mt-6 text-lg md:text-xl text-white/65 max-w-lg leading-relaxed">
               Expert racquet stringing, top brands, demo programs, and
               personalized service from a staff of active tennis players.
             </p>
           </FadeIn>
 
-          <FadeIn delay={0.3}>
+          <FadeIn immediate delay={0.3}>
             <div className="mt-8 flex flex-wrap gap-4">
               <a
                 href="#shop"
@@ -240,7 +242,7 @@ function Hero() {
           </FadeIn>
 
           {/* Trust badges */}
-          <FadeIn delay={0.4}>
+          <FadeIn immediate delay={0.4}>
             <div className="mt-12 flex flex-wrap items-center gap-6 text-white/40 text-xs font-medium uppercase tracking-wider">
               <span className="flex items-center gap-2">
                 <Award size={16} className="text-burnt-light" />
