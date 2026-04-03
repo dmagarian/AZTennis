@@ -32,6 +32,9 @@ import {
    Landing Page — React + Tailwind v4 + Framer Motion + Lucide
    ================================================================ */
 
+// Base URL for assets (handles /AZTennis/ subpath on GitHub Pages)
+const BASE = import.meta.env.BASE_URL
+
 // ---- Reusable fade-in wrapper ----
 const FadeIn = ({ children, delay = 0, className = '' }) => (
   <motion.div
@@ -187,7 +190,7 @@ function Hero() {
       {/* Background: AI-generated hero image */}
       <div className="absolute inset-0">
         <img
-          src="/images/hero.webp"
+          src={`${BASE}images/hero.webp`}
           alt="A-Z Tennis pro shop interior with racquets, shoes, and apparel displays"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -271,28 +274,28 @@ const collections = [
     title: 'Racquets',
     description: 'Top frames from Babolat, Head, Wilson, Prince, Yonex, Volkl, Tecnifibre & more.',
     Icon: Volleyball,
-    image: '/images/racquets.webp',
+    image: 'images/racquets.webp',
     imageAlt: 'Premium tennis racquets with fresh string jobs',
   },
   {
     title: 'Tennis Shoes',
     description: 'Court-ready footwear from Nike, Adidas, Asics, New Balance, K-Swiss & more.',
     Icon: Footprints,
-    image: '/images/shoes.webp',
+    image: 'images/shoes.webp',
     imageAlt: 'Performance tennis court shoes',
   },
   {
     title: 'Apparel',
     description: "Men's, women's, and junior tennis wear built for the Arizona heat.",
     Icon: Shirt,
-    image: '/images/apparel.webp',
+    image: 'images/apparel.webp',
     imageAlt: 'Tennis apparel collection including shirts, skirts, and accessories',
   },
   {
     title: 'Accessories',
     description: 'Grips, dampeners, bags, hats, visors, gifts & novelties for every player.',
     Icon: Star,
-    image: '/images/accessories.webp',
+    image: 'images/accessories.webp',
     imageAlt: 'Tennis accessories including grips, dampeners, visors, and wristbands',
   },
 ]
@@ -321,7 +324,7 @@ function Collections() {
                 {item.image ? (
                   <div className="aspect-[4/3] overflow-hidden">
                     <img
-                      src={item.image}
+                      src={`${BASE}${item.image}`}
                       alt={item.imageAlt}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       loading="lazy"
@@ -462,7 +465,7 @@ function Brands() {
           {doubled.map((brand, i) => (
             <img
               key={`${brand.name}-${i}`}
-              src={`/logos/${brand.file}`}
+              src={`${BASE}logos/${brand.file}`}
               alt={`${brand.name} logo`}
               className="h-8 md:h-10 w-auto object-contain opacity-50 hover:opacity-90 transition-opacity grayscale hover:grayscale-0"
               loading="lazy"
@@ -566,7 +569,7 @@ function About() {
           <FadeIn>
             <div className="aspect-[4/3] rounded-2xl overflow-hidden relative">
               <img
-                src="/images/about.webp"
+                src={`${BASE}images/about.webp`}
                 alt="A-Z Tennis storefront in Scottsdale, Arizona"
                 className="w-full h-full object-cover"
                 loading="lazy"
