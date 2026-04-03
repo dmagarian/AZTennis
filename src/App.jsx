@@ -195,8 +195,8 @@ function Hero() {
           className="absolute inset-0 w-full h-full object-cover"
         />
         {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-forest-dark/70" />
-        <div className="absolute inset-0 bg-gradient-to-r from-forest-dark/80 via-forest-dark/50 to-transparent" />
+        <div className="absolute inset-0 bg-forest-dark/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-forest-dark/70 via-forest-dark/30 to-transparent" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 py-20 md:py-28 w-full">
